@@ -1,0 +1,472 @@
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>CepTeknikÇan</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="CepTeknik.png" />
+  <style>
+    /* CSS */
+    :root {
+      --bg: #0b0b0b;
+      --accent: #b8860b;
+      --muted: #2a2a2a; 
+      --glass: rgba(255, 255, 255, 0.03);
+    }
+    html,
+    body {
+      height: 100%;
+      background: var(--bg);
+      color: #eee;
+      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    .mt-4 {
+      color: #ffffff !important;
+    }
+    
+    p.text-muted {
+      color: #ffffff !important;
+    }
+    #hizli-destek.text-muted {
+      color: #ffffff !important;
+    }
+    #yr {
+      color: #ffffff !important;
+    }
+    footer .text-muted {
+      color: #ffffff !important;
+      
+    }
+    #hakkimizda ul,
+    #hakkimizda li {
+      color: #ffffff !important;
+    }
+    .navbar .nav-link {
+      color: white !important;
+    }
+    .navbar .nav-link:hover {
+      color: #ffd700 !important;
+    }
+    .mb-1 {
+      color: #ffffff !important;
+    }
+    small.text-muted {
+      color: #ffffff !important;
+    }
+    .navbar {
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+      border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+    }
+    .brand-accent {
+      color: var(--accent);
+      font-weight: 700;
+    }
+    .hero {
+      min-height: 60vh;
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: 4rem;
+      padding-bottom: 4rem;
+    }
+    .hero .badge-accent {
+      background: linear-gradient(90deg, rgba(184, 134, 11, 0.12), rgba(184, 134, 11, 0.08));
+      color: var(--accent);
+      border: 1px solid rgba(184, 134, 11, 0.18);
+    }
+    .editable img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto; /* Ortalar */
+}
+    h3,h2 {
+      color: #b8860b !important;
+    }
+
+    .card-service {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.015));
+      border: 1px solid rgba(255, 255, 255, 0.03);
+      transition: transform 0.28s ease, box-shadow 0.28s ease;
+    }
+    .card-service:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+    }
+    .btn-accent {
+      background: var(--accent);
+      border-color: transparent;
+      color: #0b0b0b;
+      font-weight: 600;
+    }
+    footer {
+      padding: 2.2rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.02);
+    }
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--glass);
+      border-radius: 10px;
+      color: var(--accent);
+      border: 1px solid rgba(255, 255, 255, 0.03);
+    }
+    .reveal {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: all 0.7s ease;
+    }
+    .reveal.show {
+      opacity: 1;
+      transform: none;
+    }
+    .map-responsive {
+      position: relative;
+      overflow: hidden;
+      padding-top: 56.25%;
+    }
+    .map-responsive iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .editable {
+      outline: 1px dashed rgba(255, 255, 255, 0.02);
+      position: relative;
+      border-radius: 18px;
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0.01));
+      overflow: hidden;
+      height: 400px;
+      max-width: 100%;
+    }
+    .editable img {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: auto;
+      height: 360px;
+      max-width: 100%;
+      border-radius: 18px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.6);
+      transform: translate(-50%, -50%);
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+    .editable img.active {
+      opacity: 1;
+      z-index: 10;
+    }
+    .logo{
+     width: auto;
+     height: auto;
+     width: auto;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+   
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <div
+          style="width:44px; height:44px; border-radius:8px; background:var(--accent); display:flex; align-items:center; justify-content:center; color:#0b0b0b; font-weight:700"
+        >
+          <img src="CepTeknik.png" alt="Logo" style="max-width:100%; max-height:100%; border-radius:8px "  />
+        </div>
+        <div>
+          <div class="brand-accent">Cep Teknik </div>
+          <small class="text-muted" style="color:rgb(255, 255, 255)">Telefon & Tamir</small>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#hizmetler">Hizmetler</a></li>
+          <li class="nav-item"><a class="nav-link" href="hakkimizda.html">Hakkımızda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#iletisim">Lokasyon</a></li>
+         <li class="nav-item ms-3"><a class="btn btn-accent" href="iletisim.html">İletişime Geç</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <span class="badge badge-accent badge-accent p-2 mb-3">Hızlı • Güvenilir • Garantili</span>
+          <h1 class="display-5 fw-bold">
+            Emir Karakaya & Teknik Servis — <span style="color: var(--accent)">Hızlı Çözüm</span>
+          </h1>
+          <p class="lead text-muted" style="color: rgba(255, 255, 255, 0.6)">
+            Ekran değişimi, batarya, anakart onarımı ve yazılım desteklerini uzman ekibimizle sağlıyoruz. Orijinal parça desteği
+            ve uygun fiyat.
+          </p>
+
+          <div class="d-flex gap-2 mt-4">
+            <a class="btn btn-accent btn-lg" href="randevu.html">Randevu Al</a>
+            <a class="btn btn-outline-light btn-lg" href="hakkimizda.html">Hakkımızda</a>
+          </div>
+
+          <div class="mt-4 d-flex gap-3 align-items-center">
+            <!-- WhatsApp -->
+            <a
+              class="social-icon"
+              href="https://wa.me/905551882117"
+              target="_blank"
+              title="WhatsApp'la yazın"
+            >
+              <i class="bi bi-whatsapp" style="font-size: 1.1rem; color: var(--accent)"></i>
+            </a>
+            <!-- Instagram -->
+            <a
+              class="social-icon"
+              href="https://www.instagram.com/cepteknik__/"
+              target="_blank"
+              title="Instagram"
+            >
+              <i class="bi bi-instagram" style="font-size: 1.1rem; color: var(--accent)"></i>
+            </a>
+            <div class="text-muted" id="hizli-destek" style="color: #ffffff">
+              Hızlı destek: <strong style="color: var(--accent)">+90 555 188 2117</strong>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-6 d-none d-lg-block ">
+          <!-- Simple decorative device mockup -->
+          <div class="editable col-lg-12">
+            <img src="apple-iphone-16-pro.jpeg" alt="device" class="active" />
+            <img src="telefon1.2.jpeg.JPG" alt="device" />
+            <img src="telefon1.3.jpeg" alt="device" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Services -->
+  <section id="hizmetler" class="py-5">
+    <div class="container">
+      <div class="text-center mb-4">
+        <h2 class="fw-bold reveal">Hizmetlerimiz</h2>
+        <p class="text-muted reveal">
+          Ekran ve batarya değişimi, su teması onarımı ve daha fazlası — hızlı, garantili ve uygun fiyatlı çözümler.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card card-service p-3 h-100">
+            <div class="d-flex align-items-center gap-3">
+              <div
+                class="fs-3 text-center"
+                style="width: 64px; height: 64px; border-radius: 12px; background: rgba(184, 134, 11, 0.12); color: var(--accent)"
+              >
+                <i class="bi bi-phone"></i>
+              </div>
+              <div>
+                <h5 class="mb-1">Ekran Değişimi</h5>
+                <p class="mb-0 text-muted">Orijinal ve uyumlu ekran seçenekleriyle aynı gün değiştirme.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card card-service p-3 h-100">
+            <div class="d-flex align-items-center gap-3">
+              <div
+                class="fs-3 text-center"
+                style="width: 64px; height: 64px; border-radius: 12px; background: rgba(184, 134, 11, 0.12); color: var(--accent)"
+              >
+                <i class="bi bi-battery-half"></i>
+              </div>
+              <div>
+                <h5 class="mb-1">Batarya & Şarj</h5>
+                <p class="mb-0 text-muted">Batarya değişimi, şarj soketi tamiri ve güç sorunları.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card card-service p-3 h-100">
+            <div class="d-flex align-items-center gap-3">
+              <div
+                class="fs-3 text-center"
+                style="width: 64px; height: 64px; border-radius: 12px; background: rgba(184, 134, 11, 0.12); color: var(--accent)"
+              >
+                <i class="bi bi-gear"></i>
+              </div>
+              <div>
+                <h5 class="mb-1">Yazılım & Kurtarma</h5>
+                <p class="mb-0 text-muted">Yazılım güncelleme ve performans optimizasyonu.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="hakkimizda" class="py-5 bg-transparent">
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-lg-6 reveal">
+          <h3 class="fw-bold">Cihazınız Emin Ellerde</h3>
+          <p class="text-muted">
+        Firmamız, telefon, tablet ve diğer teknolojik cihazlarınızın onarımında uzmanlaşmıştır. 
+        Deneyimli teknisyenlerimiz, kaliteli yedek parçalar ve hızlı servis anlayışı ile cihazlarınızı 
+        güvenle teslim alır ve sorunsuz bir şekilde geri teslim eder. Sizin memnuniyetiniz, bizim önceliğimizdir.
+          </p>
+          <ul class="list-unstyled text-muted">
+            <li>• Uzman teknisyenler</li>
+            <li>• Parça garantisi</li>
+            <li>• Yerinde hızlı servis</li>
+            <li>• Uygun fiyat </li>
+            <li>• Kaliteli aksesuarlar</li>
+          </ul>
+        </div>
+        <div class="col-lg-6 reveal">
+          <div
+            class="p-3 rounded-3"
+            style="background: linear-gradient(180deg, rgba(255, 255, 255, 0.01), rgba(255, 255, 255, 0.005)); border: 1px solid rgba(255, 255, 255, 0.02)"
+          >
+            <h5 class="mb-2">Çalışma Saatleri</h5>
+            <p class="mb-1 text-muted">Hafta içi: 09:00 - 19:00</p>
+            <p class="mb-1 text-muted">Cumartesi: 09:00 - 19:00</p>
+            <p class="mb-0 text-muted">Pazar: Kapalı (Acil durumlar için arayın)</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact / Map -->
+  <section id="iletisim" class="py-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-5 reveal">
+          <h3 class="fw-bold">İletişim</h3>
+          <p class="text-muted"><strong>Randevu ya da teknik destek için aşağıdaki bilgilerden veya iletişim formunu doldurarak 
+             bize ulaşabilirsiniz.</strong></p>
+
+          <div class="mt-3">
+            <p class="mb-1">
+              <i class="bi bi-geo-alt-fill" style="color: var(--accent)"></i> Adres: <strong>İstiklal, Şht. Mustafa Kaya Cd No:11, 17400 Çan/Çanakkale</strong>
+            </p>
+            <p class="mb-1">
+              <i class="bi bi-telephone-fill" style="color: var(--accent)"></i> Telefon: <strong>+90 555 188 2117</strong>
+            </p>
+            <p class="mb-1">
+              <i class="bi bi-envelope-fill" style="color: var(--accent)"></i> E-posta: <strong>emirkarakaya222@gmail.com<br> -    cepteknikcan@gmail.com</strong>
+            </p>
+
+            <div class="mt-3 d-flex gap-2">
+              <a class="btn btn-outline-light" href="https://wa.me/905551882117" target="_blank"
+                ><i class="bi bi-whatsapp me-2"></i>WhatsApp</a
+              >
+              <a class="btn btn-outline-light" href="https://www.instagram.com/cepteknik__/" target="_blank"
+                ><i class="bi bi-instagram me-2"></i>Instagram</a
+              >
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-7 reveal">
+          <h5 class="fw-bold">Konumumuz</h5>
+          <div class="map-responsive rounded-3 shadow-sm">
+            <!-- Google Maps embed. Değiştirmek için: Google Maps -> Paylaş -> Haritayı Yerleştir -> iframe kodunu buraya yapıştırın -->
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d763.7498805330763!2d27.0525925!3d40.0307901!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14b12e210bfa5223%3A0xc613da9062929025!2zxLBzdGlrbGFsLCDFnmh0LiBNdXN0YWZhIEtheWEgQ2QgTm86MTEsIDE3NDAwIMOHYW4vw4dhbmFra2FsZQ!5e0!3m2!1str!2str!4v1755019287693!5m2!1str!2str" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              allowfullscreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div
+      class="container d-flex flex-column flex-md-row justify-content-between align-items-center"
+    >
+      <div class="mb-3 mb-md-0">
+        <strong class="brand-accent">Cep Teknik</strong>
+        <div class="text-muted">© <span id="yr"></span> Tüm hakları saklıdır.</div>
+         <a href="https://www.linkedin.com/in/mehmet-emre-ekinci-55177a313" class="text-muted"><em>Created by Emre Ekinci</em></a>
+      </div>
+      <div class="d-flex gap-3 align-items-center">
+        <a
+          class="social-icon"
+          href="https://wa.me/905551882117"
+          target="_blank"
+          ><i class="bi bi-whatsapp" style="color: var(--accent)"></i
+        ></a>
+        <a
+          class="social-icon"
+          href="https://www.instagram.com/cepteknik__/"
+          target="_blank"
+          ><i class="bi bi-instagram" style="color: var(--accent)"></i
+        ></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Year update script -->
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
+
+  <!-- Image slider for hero images -->
+  <script>
+    // Slayt gösterisi için basit JS
+    const images = document.querySelectorAll(".editable img");
+    let current = 0;
+    const total = images.length;
+
+    function showImage(index) {
+      images.forEach((img, i) => {
+        img.classList.toggle("active", i === index);
+      });
+    }
+
+    function nextImage() {
+      current = (current + 1) % total;
+      showImage(current);
+    }
+
+    setInterval(nextImage, 4000); 
+  </script>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll(".reveal").forEach(el => el.classList.add("show"));
+  });
+</script>
+
+
+</body>
+</html>

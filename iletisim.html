@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>İletişime Geç - Cep Teknik</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+   <link rel="icon" type="image/png" href="CepTeknik.png" />
+  <style>
+    #device {
+        color:rgb(148, 4, 4);
+    }
+    .alt-baslik {
+        color: rgb(245, 241, 241) ;
+    }
+    :root {
+      --bg: #0b0b0b;
+      --accent: #b8860b;
+      --muted: rgba(255,255,255,0.03);
+    }   
+    #baslik {
+      color: rgb(245, 241, 241);
+    }
+  
+    body {
+      font-family: Arial, sans-serif;
+      background-color: var(--bg);
+      color: #eee;
+      margin: 0;
+      padding-top: 70px; 
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    } 
+  
+    a:hover {
+      color: #ffd700;
+    }
+    .navbar, footer {
+      backdrop-filter: blur(6px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+      border-bottom: 1px solid rgba(255,255,255,0.03);
+    }
+    .btn-accent {
+      background: var(--accent);
+      border: none;
+      color: #0b0b0b;
+      font-weight: 600;
+    }
+    input, textarea, select {
+      background: var(--muted);
+      border: 1px solid rgba(255,255,255,0.1);
+      color: #fff;
+      border-radius: 8px;
+      padding: 10px;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+    input::placeholder, textarea::placeholder {
+      color: rgba(255,255,255,0.6);
+    }
+    form {
+      background: rgba(20,20,20,0.9);
+      padding: 30px;
+      border-radius: 12px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+    }
+    h1, h2, p {
+      text-align: center;
+    }
+    footer {
+      padding: 2rem 0;
+      text-align: center;
+      border-top: 1px solid rgba(255,255,255,0.02);
+    }
+    #baslik {
+      color: #b8860b !important;
+    }
+
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+<nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="CepTeknik.html">
+        <div style="width:44px; height:44px; border-radius:8px; background:var(--accent); display:flex; align-items:center; justify-content:center; color:#0b0b0b; font-weight:700">
+          <img src="CepTeknik.png" alt="Logo" style="max-width:100%; max-height:100%; border-radius:8px" />
+        </div>
+        <div>
+          <div class="brand-accent"id="baslik">Cep Teknik </div>
+          <small class="alt-baslik">Telefon & Tamir</small>
+        </div>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <span class="navbar-toggler-icon" style="filter: invert(1)"></span>
+      </button>
+
+     
+    </div>
+  </nav>
+
+  <!-- Form Başlığı -->
+  <div class="container my-5">
+    <h1>Cihaz Sorunları ve Destek İçin İletişim Formu</h1>
+    <h2>Bizimle İletişime Geçin</h2>
+    <p>Lütfen aşağıdaki formu doldurarak cihazınızla ilgili sorunu veya destek talebinizi bize iletin.</p>
+
+    <!-- Form -->
+    <form action="https://formspree.io/f/mwpqzybk" method="POST">
+      <label for="name">Ad Soyad:</label>
+      <input type="text" id="name" name="name" placeholder="Adınızı yazın" required>
+
+      <label for="email">E-posta Adresiniz:</label>
+      <input type="email" id="email" name="_replyto" placeholder="E-posta adresiniz" required>
+
+      <label for="phone">Telefon Numaranız:</label>
+      <input type="tel" id="phone" name="phone" placeholder="Telefon numaranız">
+
+      <label for="device">Cihaz Türü:</label>
+      <select id="device" name="device">
+        <option value="Telefon">Telefon</option>
+        <option value="Tablet">Tablet</option>
+        <option value="Diğer">Diğer</option>
+      </select>
+
+      <label for="message">Sorununuz:</label>
+      <textarea id="message" name="message" rows="4" placeholder="Mesajınızı yazın" required></textarea>
+
+      <button type="submit" class="btn btn-accent">Gönder</button>
+      <a href="CepTeknik.html" class="btn" style="margin-left: .5rem; border:1px solid rgba(255,255,255,0.06); color:#fff; background:transparent;">İptal / Ana Sayfa</a>
+    </form>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <strong class="brand-accent">Cep Teknik</strong> © <span id="yr"></span>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
